@@ -12,23 +12,21 @@ export class WidgetService {
 
   getWidgets(){
     return this._http.get('/widgets')
-    .map((response)=> response.json())
+    .map(response => response.json());
    }
 
    create(widget: Widget){
      return this._http.post('/widgets', widget)
-     .map((response)=> response.json())
+     .map(response => response.json());
    }
 
   destroy(widget: Widget){
     return this._http.delete('/widgets', widget)
-    .map((response)=> response.json())
+    .map(response => response.json());
   }
 
   update(updatedWidget:Widget){
     return this._http.put('/widgets/'+updatedWidget.id, updatedWidget)
-    .map((response)=> response.json())
+    .map(response => response.json());
   }
-  
-  show(widget: Widget){ }
 }

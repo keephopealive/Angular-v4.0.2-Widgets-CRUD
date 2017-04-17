@@ -9,11 +9,10 @@ app.use(bodyParser.json());
 
 app.use(express.static(__dirname + '/public/dist'));
 
-
 let morgan = require("morgan");
 app.use(morgan('dev'));
 
-
+// Widget
 // public id: number = (Math.floor(Math.random()*6)+1),
 // public name: string = "",
 // public description: string = "",
@@ -27,19 +26,13 @@ var widgets = [];
 
 // Create
 app.post('/widgets', (req, res, next)=>{
-    console.log(req.body);
     widgets.push(req.body);
-    console.log(widgets);
-    res.json(true);
+    return res.json(true);
 })
 
-// Read (1)
-app.get('/widgets/:id', (req, res, next)=>{
-    
-})
-// Read (all)
+// Read All
 app.get('/widgets', (req, res, next)=>{
-    res.json(widgets);
+    return res.json(widgets);
 })
 
 // Update
@@ -58,6 +51,6 @@ app.put('/widgets/:id', (req, res, next)=>{
 app.delete('/widgets', (req, res, next)=>{
     const idx = widgets.indexOf(req.body.widget)
     widgets.splice(idx,1);
-    res.json(true);
+    return res.json(true);
 })
 app.listen(1337);
