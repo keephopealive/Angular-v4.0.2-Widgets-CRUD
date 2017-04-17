@@ -7,14 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
-  
-  constructor(
-    private widgetService: WidgetService
-  ){}
-
-  willDoSomething(event){
-    console.log("AppComponent, willDoSomething(event), event -> ", event);
-  }
-
+  constructor(){}
 }
